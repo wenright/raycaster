@@ -1,5 +1,5 @@
 local Slider = require 'scripts.GUI.components.slider'
-local RadioButton = require 'scripts.GUI.components.radiobutton'
+local RadioButton = require 'scripts.GUI.components.radioButton'
 
 local Settings = {components = {}}
 
@@ -27,7 +27,7 @@ function Settings.load ()
     30,                             -- width
     30,                             -- height
     true,                           -- active or not
-    function (active)               -- function called each frame
+    function (active)               -- function called when clicked
       wallStyleUseFill = active
     end,
     {150, 255, 20},                 -- color
