@@ -33,6 +33,19 @@ function Settings.load ()
     {150, 255, 20},                 -- color
     'Fill Rectangles'               -- title
   ))
+
+  table.insert(Settings.components, RadioButton:new (
+    20,                             -- x
+    love.window.getHeight() / 2 + 100,-- y
+    30,                             -- width
+    30,                             -- height
+    love.window.getFullscreen (),   -- active or not
+    function (active)               -- function called when clicked
+      love.window.setFullscreen(active)
+    end,
+    {150, 255, 20},                 -- color
+    'Fullscreen'                    -- title
+  ))
 end
 
 function Settings.update (dt)
