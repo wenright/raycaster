@@ -1,3 +1,6 @@
+# We don't need the zipped game files
+*.love
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

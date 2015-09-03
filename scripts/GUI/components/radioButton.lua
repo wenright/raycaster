@@ -20,9 +20,9 @@ end
 function RadioButton:update (dt)
   local x, y = love.mouse.getPosition()
 
-  local hovering = x >= self.x + self.w and x <= self.x + self.w and y <= self.y + self.h and y >= self.y
+  self.hovering = x <= self.x + self.w and x >= self.x and y <= self.y + self.h and y >= self.y
 
-  if hovering then
+  if self.hovering then
     love.mouse.setCursor (handCursor)
   end
 end
@@ -31,16 +31,26 @@ function RadioButton:draw ()
   love.graphics.setColor(self.color)
 
   love.graphics.print(self.title, self.x, self.y - 20)
-  love.graphics.rectangle('line', self.x, self.y, self.w, self.h)
 
   if self.active then
-    -- TODO draw check mark or x or something
+    love.graphics.rectangle('fill', self.x, self.y, self.w, self.h)
   else
-
+    love.graphics.rectangle('line', self.x, self.y, self.w, self.h)
   end
 end
 
 function RadioButton:mousemoved (dx, dy)
+
+end
+
+function RadioButton:mousepressed (x, y, b)
+  if self.hovering then
+    self.active = not self.active
+    self.click (self.active)
+  end
+end
+
+function RadioButton:mousereleased ()
 
 end
 

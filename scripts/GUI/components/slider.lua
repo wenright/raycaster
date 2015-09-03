@@ -26,10 +26,6 @@ function Slider:update (dt)
 
   local hovering = x >= self.x + self.pos * self.w and x <= self.x + self.sliderWidth + self.pos * self.w and y <= self.y + self.h and y >= self.y
 
-  if not love.mouse.isDown () then
-    self.grabbed = false
-  end
-
   if love.mouse.isDown ('l') then
     if not self.grabbed then
       self.grabbed = hovering
@@ -57,6 +53,14 @@ function Slider:mousemoved (dx)
     self.pos = self.pos + dx / self.w
     self.pos = math.clamp (self.pos, 0, 1)
   end
+end
+
+function Slider:mousepressed (x, y, b)
+
+end
+
+function Slider:mousereleased ()
+  self.grabbed = false
 end
 
 return Slider

@@ -51,3 +51,11 @@ function love.mousemoved(x, y, dx, dy)
   	Player:mousemoved (dx, dy)
 	end
 end
+
+function love.mousepressed (x, y, b)
+	Settings.mousepressed (x, y, b)
+end
+
+function love.mousereleased ()
+	Settings.mousereleased ()
+end

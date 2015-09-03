@@ -28,7 +28,7 @@ function Settings.load ()
     30,                             -- height
     true,                           -- active or not
     function (active)               -- function called each frame
-      -- TODO
+      wallStyleUseFill = active
     end,
     {150, 255, 20},                 -- color
     'Fill Rectangles'               -- title
@@ -37,6 +37,9 @@ end
 
 function Settings.update (dt)
   if Settings.isOpen then
+    -- Set cursor to default
+    love.mouse.setCursor ()
+
     for _, component in pairs (Settings.components) do
       component:update (dt)
     end
@@ -48,9 +51,6 @@ function Settings.draw ()
     -- Dim the background
     love.graphics.setColor(0, 0, 0, 150)
     love.graphics.rectangle('fill', 0, 0, love.window.getWidth(), love.window.getHeight())
-
-    -- Set cursor to default
-    love.mouse.setCursor ()
 
     love.graphics.setColor (150, 255, 20)
 
@@ -73,6 +73,22 @@ function Settings.mousemoved (dx, dy)
   if Settings.isOpen then
     for _, component in pairs (Settings.components) do
       component:mousemoved (dx, dy)
+    end
+  end
+end
+
+function Settings.mousepressed (x, y, b)
+  if Settings.isOpen then
+    for _, component in pairs (Settings.components) do
+      component:mousepressed (x, y, b)
+    end
+  end
+end
+
+function Settings.mousereleased ()
+  if Settings.isOpen then
+    for _, component in pairs (Settings.components) do
+      component:mousereleased ()
     end
   end
 end

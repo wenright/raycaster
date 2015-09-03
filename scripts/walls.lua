@@ -39,6 +39,8 @@ return {
 
   		Terrain.Stuff[i] = p
   	end
+
+    wallStyleUseFill = true
   end,
 
   draw = function ()
@@ -69,7 +71,11 @@ return {
   			-- Assign color based on lighting around the intersection
   			love.graphics.setColor (255 * (1 - min), 255 * (1 - min), 255 * (1 - min))
 
-        love.graphics.rectangle ('fill', w - x, h2 - drawHeight/(min * h2) + Player.ry, raySkip, (2 * drawHeight) / (min * h2))
+        if wallStyleUseFill then
+          love.graphics.rectangle ('fill', w - x, h2 - drawHeight/(min * h2) + Player.ry, raySkip, (2 * drawHeight) / (min * h2))
+        else
+          love.graphics.rectangle ('line', w - x, h2 - drawHeight/(min * h2) + Player.ry, raySkip, (2 * drawHeight) / (min * h2))
+        end
   			-- love.graphics.line(
   			-- 	w - x,
   			-- 	h2 + drawHeight/(min * h2) + Player.ry,
