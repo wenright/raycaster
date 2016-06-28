@@ -1,6 +1,9 @@
 # We don't need the zipped game files
 *.love
 
+# See ya, sublime files
+*sublime*
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

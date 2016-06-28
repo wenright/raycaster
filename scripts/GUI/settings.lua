@@ -60,6 +60,10 @@ function Settings.update (dt)
 end
 
 function Settings.draw ()
+  -- Draw framerate
+  love.graphics.setColor(0, 255, 0)
+  love.graphics.print(love.timer.getFPS(), love.window.getWidth() - 30, 10)
+
   if Settings.isOpen then
     -- Dim the background
     love.graphics.setColor(0, 0, 0, 150)

@@ -71,10 +71,13 @@ return {
   			-- Assign color based on lighting around the intersection
   			love.graphics.setColor (255 * (1 - min), 255 * (1 - min), 255 * (1 - min))
 
+        -- TODO fisheye effect almost fixed, now it's doing an S-shaped effect
+        min = min * math.cos(FOV * ((x - (w/2))/w))
+        local wallY = h2 - drawHeight/(min * h2) + Player.ry
         if wallStyleUseFill then
-          love.graphics.rectangle ('fill', w - x, h2 - drawHeight/(min * h2) + Player.ry, raySkip, (2 * drawHeight) / (min * h2))
+          love.graphics.rectangle ('fill', w - x, wallY, raySkip, (2 * drawHeight) / (min * h2))
         else
-          love.graphics.rectangle ('line', w - x, h2 - drawHeight/(min * h2) + Player.ry, raySkip, (2 * drawHeight) / (min * h2))
+          love.graphics.rectangle ('line', w - x, wallY, raySkip, (2 * drawHeight) / (min * h2))
         end
   			-- love.graphics.line(
   			-- 	w - x,

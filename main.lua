@@ -12,11 +12,6 @@ function love.load ()
 	Player:load()
 	Walls:load()
 	Settings:load()
-
-	raySkip = 1
-	FOV = 75 * math.pi / 180
-	drawDistance = 500
-	drawHeight = love.window.getHeight() * 5
 end
 
 function love.update (dt)
@@ -30,10 +25,6 @@ function love.draw ()
   Walls.draw()
 	Minimap.draw()
 	Settings.draw()
-
-	-- Draw framerate
-	love.graphics.setColor(0, 255, 0)
-	love.graphics.print(love.timer.getFPS(), love.window.getWidth() - 30, 10)
 end
 
 function love.keypressed (key)
@@ -48,6 +39,7 @@ function love.mousemoved(x, y, dx, dy)
 	if Settings.isOpen then
 		Settings.mousemoved (dx, dy)
 	else
+		-- Don't allow player to look around if in settings menu
   	Player:mousemoved (dx, dy)
 	end
 end

@@ -6,6 +6,11 @@ Ray = {
   hitList = {}
 }
 
+raySkip = 1
+FOV = 75 * math.pi / 180
+drawDistance = 500
+drawHeight = love.window.getHeight() * 5
+
 function worldRayCastCallback (fixture, x, y, xn, yn, fraction)
 	local hit = {}
 	hit.fixture = fixture

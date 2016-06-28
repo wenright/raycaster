@@ -14,7 +14,7 @@ function Slider:new (x, y, w, h, min, max, start, step, color, title)
   o.pos = start or 0
   o.step = step or function () end
   o.color = color or {255, 255, 255}
-  o.title = title
+  o.title = title or ''
   o.grabbed = false
   o.sliderWidth = h
 

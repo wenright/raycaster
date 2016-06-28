@@ -1,10 +1,10 @@
 return {
   draw = function ()
+    -- Prevent minimap FOV indicator from going through to screen
+    love.graphics.setScissor (0, 0, love.window.getWidth () / 4, love.window.getHeight () / 4)
+
     love.graphics.push ()
     love.graphics.scale (0.25, 0.25)
-
-    -- Preven minimap FOV indicator from going through to screen
-    love.graphics.setScissor (0, 0, love.window.getWidth () / 4, love.window.getHeight () / 4)
 
   	love.graphics.setColor (50, 50, 50)
   	love.graphics.rectangle ('fill', 0, 0, love.window.getWidth (), love.window.getHeight ())
