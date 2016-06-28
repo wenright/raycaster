@@ -1,16 +1,16 @@
 return {
   draw = function ()
     -- Prevent minimap FOV indicator from going through to screen
-    love.graphics.setScissor (0, 0, love.window.getWidth () / 4, love.window.getHeight () / 4)
+    love.graphics.setScissor (0, 0, love.graphics.getWidth () / 4, love.graphics.getHeight () / 4)
 
     love.graphics.push ()
     love.graphics.scale (0.25, 0.25)
 
   	love.graphics.setColor (50, 50, 50)
-  	love.graphics.rectangle ('fill', 0, 0, love.window.getWidth (), love.window.getHeight ())
+  	love.graphics.rectangle ('fill', 0, 0, love.graphics.getWidth (), love.graphics.getHeight ())
 
   	love.graphics.setColor (255, 255, 255)
-  	love.graphics.rectangle ('line', 0, 0, love.window.getWidth (), love.window.getHeight ())
+  	love.graphics.rectangle ('line', 0, 0, love.graphics.getWidth (), love.graphics.getHeight ())
 
   	for i, v in ipairs (Terrain.Stuff) do
   		if v.Shape:getType () == "polygon" then
@@ -29,7 +29,7 @@ return {
   	love.graphics.line (Player.x, Player.y, Player.x + math.cos(Player.rx - FOV / 2) * 500, Player.y + math.sin(Player.rx - FOV / 2) * 500)
 
     love.graphics.setColor (100, 255, 200, 255)
-    love.graphics.point (Player.x, Player.y)
+    love.graphics.points (Player.x, Player.y)
 
     love.graphics.setColor (230, 250, 220, 25)
     love.graphics.arc ('fill', Player.x, Player.y, drawDistance, Player.rx - FOV / 2, Player.rx + FOV / 2)

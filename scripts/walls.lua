@@ -21,7 +21,7 @@ return {
   	for i = 1, 30 do
   		local p = {}
 
-  		p.x, p.y = math.random(30, love.window.getWidth() - 30), math.random(30, love.window.getHeight() - 30)
+  		p.x, p.y = math.random(30, love.graphics.getWidth() - 30), math.random(30, love.graphics.getHeight() - 30)
   		local shapetype = math.random(3)
   		if shapetype == 1 then
   			local w, h, r = math.random() * 10 + 40, math.random() * 10 + 40, math.random() * math.pi * 2
@@ -45,7 +45,7 @@ return {
 
   draw = function ()
     -- Drawing the actual view
-  	local h2 = love.window.getHeight() / 2
+  	local h2 = love.graphics.getHeight() / 2
   	local w = love.graphics.getWidth()
   	love.graphics.setColor (255, 255, 255)
   	for x = 0, w + raySkip, raySkip do
@@ -59,7 +59,7 @@ return {
   			worldRayCastCallback)
 
   		if #Ray.hitList > 0 then
-  			local min = love.window.getHeight()
+  			local min = love.graphics.getHeight()
   			for i = 1, #Ray.hitList do
   				if Ray.hitList[i].fraction < min then
   					min = Ray.hitList[i].fraction

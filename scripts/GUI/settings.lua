@@ -8,8 +8,8 @@ function Settings.load ()
 
   table.insert(Settings.components, Slider:new (
     20,                             -- x
-    love.window.getHeight() - 50,   -- y
-    love.window.getWidth() / 5,     -- width
+    love.graphics.getHeight() - 50,   -- y
+    love.graphics.getWidth() / 5,     -- width
     30,                             -- height
     1,                              -- min
     love.graphics.getWidth(),       -- max
@@ -23,7 +23,7 @@ function Settings.load ()
 
   table.insert(Settings.components, RadioButton:new (
     20,                             -- x
-    love.window.getHeight() / 2,    -- y
+    love.graphics.getHeight() / 2,    -- y
     30,                             -- width
     30,                             -- height
     true,                           -- active or not
@@ -36,7 +36,7 @@ function Settings.load ()
 
   table.insert(Settings.components, RadioButton:new (
     20,                             -- x
-    love.window.getHeight() / 2 + 100,-- y
+    love.graphics.getHeight() / 2 + 100,-- y
     30,                             -- width
     30,                             -- height
     love.window.getFullscreen (),   -- active or not
@@ -62,12 +62,12 @@ end
 function Settings.draw ()
   -- Draw framerate
   love.graphics.setColor(0, 255, 0)
-  love.graphics.print(love.timer.getFPS(), love.window.getWidth() - 30, 10)
+  love.graphics.print(love.timer.getFPS(), love.graphics.getWidth() - 30, 10)
 
   if Settings.isOpen then
     -- Dim the background
     love.graphics.setColor(0, 0, 0, 150)
-    love.graphics.rectangle('fill', 0, 0, love.window.getWidth(), love.window.getHeight())
+    love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
 
     love.graphics.setColor (150, 255, 20)
 
