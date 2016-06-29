@@ -26,7 +26,7 @@ function Slider:update (dt)
 
   local hovering = x >= self.x + self.pos * self.w and x <= self.x + self.sliderWidth + self.pos * self.w and y <= self.y + self.h and y >= self.y
 
-  if love.mouse.isDown ('l') then
+  if love.mouse.isDown (1) then
     if not self.grabbed then
       self.grabbed = hovering
     end
